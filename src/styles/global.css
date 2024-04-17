@@ -75,3 +75,11 @@
   }
 }
 
+@layer base {
+  .gutter {
+    @apply gap-4;
+  }
+  .m-page {
+    @apply max-w-7xl mx-auto px-4;
+  }
+}
