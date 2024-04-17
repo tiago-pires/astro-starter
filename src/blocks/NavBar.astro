@@ -2,9 +2,20 @@
 import site from "@/data/site"
 import Menu from "@/components/Menu"
 const currentPath = Astro.url.pathname;
+import Brand from '../images/brand.svg'
+import {Image} from 'astro:assets'
+import { Button } from '../components/ui/button.tsx'
+import MenuDesktop from '@/components/MenuDesktop.tsx'
 ---
 
 <div class="flex justify-between items-center">
-  <div>{site.brand}</div>
+  <div class="flex">
+    {currentPath !== '/' ? 
+      <a href="/" title="Back to Homepage"><Image src={Brand} alt={site.brand} class="size-10"/></a>
+      :
+      <span><Image src={Brand} alt={site.brand} class="size-10"/></span>
+    }
+  </div>
+  <MenuDesktop client:load />
   <Menu client:load />
 </div>
