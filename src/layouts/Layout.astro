@@ -8,6 +8,7 @@ interface Props {
 const { title } = Astro.props;
 
 import Menu from "@/components/Menu"
+import Footer from "@/blocks/Footer.astro"
 
 ---
 
@@ -21,8 +22,13 @@ import Menu from "@/components/Menu"
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
-    <Menu client:load />
-		<slot />
+	<body class="flex flex-col min-h-svh">
+    <div>
+      <Menu client:load />
+      <slot />
+    </div>
+    <div class="mt-auto">
+      <Footer />
+    </div>
 	</body>
 </html>
