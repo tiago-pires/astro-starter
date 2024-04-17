@@ -5,7 +5,7 @@
 - [x] Add React
 - [x] Add shadcn/ui
 - [x] Add astro-icon
-- [ ] Add Footer to Layout
-- [ ] Add Nav to Layout
+- [x] Add Footer to Layout
+- [x] Add Nav to Layout
 - [ ] Add blog (content collection)
 - [ ] Add mdx support
