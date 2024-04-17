@@ -16,6 +16,11 @@ import MenuDesktop from '@/components/MenuDesktop.tsx'
       <span><Image src={Brand} alt={site.brand} class="size-10"/></span>
     }
   </div>
-  <MenuDesktop client:load />
+  <div class="flex items-center justify">
+    <MenuDesktop client:load />
+    <Button asChild>
+      Contact
+    </Button>
+  </div>
   <Menu client:load />
 </div>

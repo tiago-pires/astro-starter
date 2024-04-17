@@ -4,10 +4,15 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   prefix: "",
   theme: {
+    screens: {
+      xs: "400px",
+      "2xl": "1400px",
+    },
     container: {
       center: true,
       padding: "2rem",
       screens: {
+        xs: "400px",
         "2xl": "1400px",
       },
     },
@@ -70,4 +75,3 @@ module.exports = {
   },
   plugins: [require("tailwindcss-animate")],
 };
-

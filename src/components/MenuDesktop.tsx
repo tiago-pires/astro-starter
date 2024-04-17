@@ -22,22 +22,22 @@ const items = [
       {
         label: "Link One",
         title: "Link One",
-        url: "#",
+        slug: "#",
       },
       {
         label: "Link Two",
         title: "Link Two",
-        url: "#",
+        slug: "#",
       },
       {
         label: "Link Three",
         title: "Link Three",
-        url: "#",
+        slug: "#",
       },
       {
         label: "Link Four",
         title: "Link Five",
-        url: "#",
+        slug: "#",
       },
     ],
   },
@@ -47,24 +47,24 @@ const items = [
       {
         label: "Link One",
         title: "Link One",
-        url: "#",
+        slug: "#",
       },
       {
         label: "Link Two",
         title: "Link Two",
-        url: "#",
+        slug: "#",
       },
       {
         label: "Link Three",
         title: "Link Three",
-        url: "#",
+        slug: "#",
       },
     ],
   },
   {
     label: "Top Level",
     title: "Link",
-    url: "#",
+    slug: "#",
   },
 ];
 
@@ -73,18 +73,18 @@ export default function MenuDesktop() {
     <NavigationMenu>
       <NavigationMenuList>
         {items.map((item) => (
-          <NavigationMenuItem>
+          <NavigationMenuItem key={crypto.randomUUID()}>
             {item.subItems ? (
               <>
                 <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
-                <NavigationMenuContent className="left-auto right-0">
-                  <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                <NavigationMenuContent>
+                  <ul className="grid gap-3 p-4 xs:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                     {item.banner && (
                       <li className="row-span-3">
                         <NavigationMenuLink asChild>
                           <a
                             className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                            href="/"
+                            href={item.slug}
                           >
                             <div className="mb-2 mt-4 text-lg font-medium">
                               {item.banner.title}
@@ -99,8 +99,8 @@ export default function MenuDesktop() {
                     <li>
                       <ul>
                         {item.subItems.map((subItem) => (
-                          <li>
-                            <a href={subItem.url} title={subItem.title}>
+                          <li key={crypto.randomUUID()}>
+                            <a href={subItem.slug} title={subItem.title}>
                               {subItem.label}
                             </a>
                           </li>
@@ -111,7 +111,10 @@ export default function MenuDesktop() {
                 </NavigationMenuContent>
               </>
             ) : (
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink
+                asChild
+                className={navigationMenuTriggerStyle()}
+              >
                 <a href="#">Documentation</a>
               </NavigationMenuLink>
             )}
