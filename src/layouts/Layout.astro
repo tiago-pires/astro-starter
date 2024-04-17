@@ -7,7 +7,7 @@ interface Props {
 
 const { title } = Astro.props;
 
-import Menu from "@/components/Menu"
+import NavBar from "@/blocks/NavBar.astro"
 import Footer from "@/blocks/Footer.astro"
 
 ---
@@ -24,7 +24,9 @@ import Footer from "@/blocks/Footer.astro"
 	</head>
 	<body class="flex flex-col min-h-svh">
     <div>
-      <Menu client:load />
+      <header class="m-page py-4">
+        <NavBar />
+      </header>
       <slot />
     </div>
     <div class="mt-auto">

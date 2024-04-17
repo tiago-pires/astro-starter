@@ -1,0 +1,10 @@
+---
+import site from "@/data/site"
+import Menu from "@/components/Menu"
+const currentPath = Astro.url.pathname;
+---
+
+<div class="flex justify-between items-center">
+  <div>{site.brand}</div>
+  <Menu client:load />
+</div>
